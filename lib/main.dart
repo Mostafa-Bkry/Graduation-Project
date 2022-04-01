@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/pages/home.dart';
+import 'package:project/pages/on_boarding.dart';
 import 'package:project/pages/loading.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/': (_) => const LoadingPage(),
-        '/home': (_) => const Home(),
+        '/home': (_) => const OnBoarding(),
       },
     );
   }
