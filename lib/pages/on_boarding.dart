@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:project/pages/login.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -15,48 +14,47 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(children: [
-          Expanded(
-            child: PageView.builder(
-              controller: controller,
-              scrollDirection: Axis.horizontal,
-              onPageChanged: (value) {
-                setState(() {
-                  currentIndex = value;
-                  //print('currentIndex = $currentIndex');
-                });
-              },
-              itemCount: 3,
-              itemBuilder: (context, index) => showWhich(currentIndex),
+    return Scaffold(
+      body: Column(children: [
+        Expanded(
+          child: PageView.builder(
+            controller: controller,
+            scrollDirection: Axis.horizontal,
+            onPageChanged: (value) {
+              setState(() {
+                currentIndex = value;
+                //print('currentIndex = $currentIndex');
+              });
+            },
+            itemCount: 3,
+            itemBuilder: (context, index) => showWhich(currentIndex),
+          ),
+        ),
+        Center(
+          child: SmoothPageIndicator(
+            controller: controller,
+            count: 3,
+            effect: const WormEffect(
+              activeDotColor: Color(0xff27554e),
+            ),
+            onDotClicked: (index) => controller.animateToPage(
+              index,
+              duration: const Duration(
+                milliseconds: 650,
+              ),
+              curve: Curves.easeIn,
             ),
           ),
-          Center(
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: 3,
-              effect: const WormEffect(
-                activeDotColor: Color(0xff27554e),
-              ),
-              onDotClicked: (index) => controller.animateToPage(
-                index,
-                duration: const Duration(
-                  milliseconds: 650,
-                ),
-                curve: Curves.easeIn,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-        ]),
-      ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+      ]),
     );
   }
 
   //-------------------------------
+  //methods manage what to show in each on board screen
 
   Widget showWhich(int number) {
     if (number == 0) {

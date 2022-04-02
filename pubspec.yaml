@@ -81,6 +81,15 @@ flutter:
     - family: RobotoReqular
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
+    - family: PoppinsLight
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+    - family: PoppinsBold
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+    - family: PoppinsExtraBold
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

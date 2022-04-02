@@ -24,25 +24,23 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-          alignment: Alignment.bottomCenter,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/firstScreen.png'),
-              fit: BoxFit.cover,
-            ),
+    return Container(
+        alignment: Alignment.bottomCenter,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/firstScreen.png'),
+            fit: BoxFit.cover,
           ),
-          child: Column(
-            children: const [
-              SizedBox(
-                height: 500,
-              ),
-              SpinKitCircle(
-                color: Colors.green,
-              ),
-            ],
-          )),
-    );
+        ),
+        child: Column(
+          children: const [
+            SizedBox(
+              height: 500,
+            ),
+            SpinKitCircle(
+              color: Colors.green,
+            ),
+          ],
+        ));
   }
 }
