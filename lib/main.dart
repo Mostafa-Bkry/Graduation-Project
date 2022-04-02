@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/pages/login.dart';
 import 'package:project/pages/on_boarding.dart';
 import 'package:project/pages/loading.dart';
+import 'package:project/pages/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => const LoadingPage(),
         '/onBoarding': (_) => const OnBoarding(),
         '/login': (_) => const LoginPage(),
+        '/register': (_) => const RegisterPage(),
       },
     );
   }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   /*
   void moveToRegister() {
     Navigator.of(context).pushReplacementNamed('/onBoarding');
@@ -119,9 +119,9 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
             ),
             ElevatedButton(
-              onPressed: () => print('LoginButton'),
+              onPressed: () => print('object'),
               child: const Text(
-                'LOG IN',
+                'Register',
                 style: TextStyle(
                   fontSize: 20,
                   fontFamily: 'PoppinsBold',
@@ -152,8 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               RawMaterialButton(
-                onPressed: () =>
-                    Navigator.of(context).pushReplacementNamed('/register'),
+                onPressed: () => print('object'),
                 elevation: 2.0,
                 child: const Text(
                   'Sign up',
