@@ -13,7 +13,7 @@ class _LoadingPageState extends State<LoadingPage> {
   void check() async {
     await API().check();
     //here we can pass any arguments to the home screen--->>
-    Navigator.of(context).pushReplacementNamed('/home');
+    Navigator.of(context).pushReplacementNamed('/onBoarding');
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:project/pages/login.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -19,17 +20,17 @@ class _OnBoardingState extends State<OnBoarding> {
         body: Column(children: [
           Expanded(
             child: PageView.builder(
-                controller: controller,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (value) {
-                  setState(() {
-                    currentIndex = value;
-                    //print('currentIndex = $currentIndex');
-                  });
-                },
-                itemCount: 3,
-                itemBuilder: (context, index) =>
-                    WhatShows(currentIndex).showWhich(currentIndex)),
+              controller: controller,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (value) {
+                setState(() {
+                  currentIndex = value;
+                  //print('currentIndex = $currentIndex');
+                });
+              },
+              itemCount: 3,
+              itemBuilder: (context, index) => showWhich(currentIndex),
+            ),
           ),
           Center(
             child: SmoothPageIndicator(
@@ -38,21 +39,24 @@ class _OnBoardingState extends State<OnBoarding> {
               effect: const WormEffect(
                 activeDotColor: Color(0xff27554e),
               ),
+              onDotClicked: (index) => controller.animateToPage(
+                index,
+                duration: const Duration(
+                  milliseconds: 650,
+                ),
+                curve: Curves.easeIn,
+              ),
             ),
           ),
           const SizedBox(
-            height: 7,
+            height: 10,
           ),
         ]),
       ),
     );
   }
-}
 
-class WhatShows {
-  int index = 0;
-
-  WhatShows(this.index);
+  //-------------------------------
 
   Widget showWhich(int number) {
     if (number == 0) {
@@ -110,7 +114,7 @@ class WhatShows {
       Row(
         children: [
           RawMaterialButton(
-            onPressed: () => print('object'),
+            onPressed: () => controller.jumpToPage(2),
             elevation: 2.0,
             child: const Text(
               'SKIP',
@@ -129,7 +133,10 @@ class WhatShows {
             width: 95,
           ),
           RawMaterialButton(
-            onPressed: () => print('object'),
+            onPressed: () => controller.nextPage(
+              duration: const Duration(milliseconds: 650),
+              curve: Curves.easeInOut,
+            ),
             elevation: 2.0,
             fillColor: const Color(0xff27554e),
             child: const Text(
@@ -197,7 +204,7 @@ class WhatShows {
       Row(
         children: [
           RawMaterialButton(
-            onPressed: () => print('object'),
+            onPressed: () => controller.jumpToPage(2),
             elevation: 2.0,
             child: const Text(
               'SKIP',
@@ -216,7 +223,10 @@ class WhatShows {
             width: 95,
           ),
           RawMaterialButton(
-            onPressed: () => print('object'),
+            onPressed: () => controller.nextPage(
+              duration: const Duration(milliseconds: 650),
+              curve: Curves.easeInOut,
+            ),
             elevation: 2.0,
             fillColor: const Color(0xff27554e),
             child: const Text(
@@ -284,31 +294,31 @@ class WhatShows {
       const SizedBox(
         height: 28,
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          RawMaterialButton(
-            onPressed: () => print('object'),
-            elevation: 2.0,
-            fillColor: const Color(0xff27554e),
-            child: const Text(
-              'Get Started',
-              style: TextStyle(
-                fontSize: 23,
-                fontFamily: 'RobotoBold',
-                letterSpacing: 1.5,
-                color: Colors.white,
-              ),
+      Center(
+        child: RawMaterialButton(
+          onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
+          elevation: 2.0,
+          fillColor: const Color(0xff27554e),
+          child: const Text(
+            'Get Started',
+            style: TextStyle(
+              fontSize: 23,
+              fontFamily: 'RobotoBold',
+              letterSpacing: 1.5,
+              color: Colors.white,
             ),
-            padding: const EdgeInsets.all(10.0),
-            constraints: const BoxConstraints(minWidth: 244),
-            shape: const StadiumBorder(),
           ),
-        ],
+          padding: const EdgeInsets.all(10.0),
+          constraints: const BoxConstraints(minWidth: 244),
+          shape: const StadiumBorder(),
+        ),
       ),
     ]);
   }
-}/*
+}
+
+
+/*
 class MyClipper extends CustomClipper<Rect> {
   @override
   getClip(Size size) {
