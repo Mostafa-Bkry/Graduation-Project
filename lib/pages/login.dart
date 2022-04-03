@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               'Welcome Back',
               style: TextStyle(
                 fontSize: 28,
-                fontFamily: 'PoppinsExtraBold',
+                fontFamily: 'PoppinsBold',
                 color: Color(0xff3f414e),
               ),
             ),
