@@ -8,13 +8,11 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  /*
-  void moveToRegister() {
-    Navigator.of(context).pushReplacementNamed('/onBoarding');
-  }
-  */
+  //To Manage login Button go to ScaffoldMessenger
 
   final _formKey = GlobalKey<FormState>();
+  final _controller = TextEditingController();
+  bool _showORnot = true;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 374,
                 height: 63,
                 child: TextFormField(
+                  controller: _controller,
                   validator: (value) => value == null || value.isEmpty
                       ? 'Please enter your name'
                       : null,
@@ -71,6 +70,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   textInputAction: TextInputAction.next,
                   autocorrect: false,
                   decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () => _controller.clear(),
+                        icon: const Icon(
+                          Icons.clear,
+                        ),
+                      ),
                       label: Row(children: const [
                         Icon(Icons.supervised_user_circle_rounded),
                         SizedBox(
@@ -97,11 +102,21 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 374,
                 height: 63,
-                child: TextField(
-                  keyboardType: TextInputType.text,
+                child: TextFormField(
+                  controller: _controller,
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter your e-mail'
+                      : null,
+                  keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   autocorrect: false,
                   decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () => _controller.clear(),
+                        icon: const Icon(
+                          Icons.clear,
+                        ),
+                      ),
                       label: Row(children: const [
                         Icon(Icons.mail_rounded),
                         SizedBox(
@@ -128,11 +143,23 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: 374,
                 height: 63,
-                child: TextField(
+                child: TextFormField(
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter password'
+                      : null,
                   keyboardType: TextInputType.text,
+                  obscureText: _showORnot,
                   textInputAction: TextInputAction.next,
                   autocorrect: false,
                   decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () => setState(() {
+                          _showORnot = !_showORnot;
+                        }),
+                        icon: Icon(
+                          _showORnot ? Icons.visibility : Icons.visibility_off,
+                        ),
+                      ),
                       label: Row(children: const [
                         Icon(Icons.lock),
                         SizedBox(
@@ -162,7 +189,16 @@ class _RegisterPageState extends State<RegisterPage> {
                         const SnackBar(content: Text('Processing Data')),
                       )
                     : ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Please fill all'),
+                        padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
+                        content: Text(
+                          'Please fill all',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'PoppinsBold',
+                            letterSpacing: 1.5,
+                            color: Colors.white,
+                          ),
+                        ),
                       )),
                 child: const Text(
                   'Register',

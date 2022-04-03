@@ -8,168 +8,211 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  /*
-  void moveToRegister() {
-    Navigator.of(context).pushReplacementNamed('/onBoarding');
-  }
-  */
+  //To Manage login Button go to ScaffoldMessenger
+
+  final _formKey = GlobalKey<FormState>();
+  final _controller = TextEditingController();
+  bool _showORnot = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        Center(
-          child: Column(children: [
-            const SizedBox(
-              height: 10,
-            ),
-            CircleAvatar(
-              child: Image.asset('assets/images/icon.png'),
-              radius: 30,
-            ),
-            const SizedBox(
-              height: 23,
-            ),
-            const Text(
-              'Welcome Back',
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'PoppinsBold',
-                color: Color(0xff3f414e),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(children: const [
-              SizedBox(width: 25),
-              Text(
-                'login to continue',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontFamily: 'RobotoBold',
-                  color: Color(0xff030303),
-                  letterSpacing: 0.12,
-                ),
-              ),
-            ]),
-            const SizedBox(
-              height: 52,
-            ),
-            SizedBox(
-              width: 374,
-              height: 63,
-              child: TextField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-                autocorrect: false,
-                decoration: InputDecoration(
-                    label: Row(children: const [
-                      Icon(Icons.mail_rounded),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        'Email address',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'PoppinsLight',
-                          color: Color(0xffa1a4b2),
-                          letterSpacing: 0.12,
-                        ),
-                      ),
-                    ]),
-                    border: const OutlineInputBorder(),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 238, 239, 247)),
-              ),
-            ),
-            const SizedBox(
-              height: 23,
-            ),
-            SizedBox(
-              width: 374,
-              height: 63,
-              child: TextField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-                autocorrect: false,
-                decoration: InputDecoration(
-                    label: Row(children: const [
-                      Icon(Icons.lock),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        'Password',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'PoppinsLight',
-                          color: Color(0xffa1a4b2),
-                          letterSpacing: 0.12,
-                        ),
-                      ),
-                    ]),
-                    border: const OutlineInputBorder(),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 238, 239, 247)),
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            ElevatedButton(
-              onPressed: () => print('LoginButton'),
-              child: const Text(
-                'LOG IN',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'PoppinsBold',
-                  letterSpacing: 1.5,
-                  color: Colors.white,
-                ),
-              ),
-              style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(const Size(347, 63)),
-                  backgroundColor: MaterialStateProperty.all(
-                    const Color(0xff27554e),
-                  )),
-            ),
-            const SizedBox(
-              height: 23,
-            ),
-            Row(children: [
+      body: Form(
+        key: _formKey,
+        child: ListView(children: [
+          Center(
+            child: Column(children: [
               const SizedBox(
-                width: 25,
+                height: 10,
+              ),
+              CircleAvatar(
+                child: Image.asset('assets/images/icon.png'),
+                radius: 30,
+              ),
+              const SizedBox(
+                height: 23,
               ),
               const Text(
-                'Don\'t have any account?',
+                'Welcome Back',
                 style: TextStyle(
-                  fontSize: 24,
-                  fontFamily: 'RobotoBold',
-                  letterSpacing: 0.12,
-                  color: Colors.black,
+                  fontSize: 28,
+                  fontFamily: 'PoppinsBold',
+                  color: Color(0xff3f414e),
                 ),
               ),
-              RawMaterialButton(
-                onPressed: () =>
-                    Navigator.of(context).pushReplacementNamed('/register'),
-                elevation: 2.0,
+              const SizedBox(
+                height: 15,
+              ),
+              Row(children: const [
+                SizedBox(width: 25),
+                Text(
+                  'login to continue',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'RobotoBold',
+                    color: Color(0xff030303),
+                    letterSpacing: 0.12,
+                  ),
+                ),
+              ]),
+              const SizedBox(
+                height: 52,
+              ),
+              SizedBox(
+                width: 374,
+                height: 63,
+                child: TextFormField(
+                  controller: _controller,
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter your name'
+                      : null,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () => _controller.clear(),
+                        icon: const Icon(
+                          Icons.clear,
+                        ),
+                      ),
+                      label: Row(children: const [
+                        Icon(Icons.mail_rounded),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          'Email address',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'PoppinsLight',
+                            color: Color(0xffa1a4b2),
+                            letterSpacing: 0.12,
+                          ),
+                        ),
+                      ]),
+                      border: const OutlineInputBorder(),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 238, 239, 247)),
+                ),
+              ),
+              const SizedBox(
+                height: 23,
+              ),
+              SizedBox(
+                width: 374,
+                height: 63,
+                child: TextFormField(
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter your password'
+                      : null,
+                  obscureText: _showORnot,
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () => setState(() {
+                          _showORnot = !_showORnot;
+                        }),
+                        icon: Icon(
+                          _showORnot ? Icons.visibility : Icons.visibility_off,
+                        ),
+                      ),
+                      label: Row(children: const [
+                        Icon(Icons.lock),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          'Password',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'PoppinsLight',
+                            color: Color(0xffa1a4b2),
+                            letterSpacing: 0.12,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 176,
+                        ),
+                      ]),
+                      border: const OutlineInputBorder(),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 238, 239, 247)),
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                onPressed: () => _formKey.currentState!.validate()
+                    ? ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      )
+                    : ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
+                        content: Text(
+                          'Please fill all',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'PoppinsBold',
+                            letterSpacing: 1.5,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )),
                 child: const Text(
-                  'Sign up',
+                  'LOG IN',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'PoppinsBold',
+                    letterSpacing: 1.5,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(347, 63)),
+                    backgroundColor: MaterialStateProperty.all(
+                      const Color(0xff27554e),
+                    )),
+              ),
+              const SizedBox(
+                height: 23,
+              ),
+              Row(children: [
+                const SizedBox(
+                  width: 25,
+                ),
+                const Text(
+                  'Don\'t have any account?',
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: 'RobotoBold',
                     letterSpacing: 0.12,
-                    color: Color(0xff719552),
+                    color: Colors.black,
                   ),
                 ),
-                shape: const StadiumBorder(),
-              ),
+                RawMaterialButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/register'),
+                  elevation: 2.0,
+                  child: const Text(
+                    'Sign up',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'RobotoBold',
+                      letterSpacing: 0.12,
+                      color: Color(0xff719552),
+                    ),
+                  ),
+                  shape: const StadiumBorder(),
+                ),
+              ]),
             ]),
-          ]),
-        ),
-      ]),
+          ),
+        ]),
+      ),
     );
   }
 }
