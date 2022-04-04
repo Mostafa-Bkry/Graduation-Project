@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<EditProfilePage> createState() => _EditProfilePageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _EditProfilePageState extends State<EditProfilePage> {
   //To Manage login Button go to ScaffoldMessenger
 
   final _formKey = GlobalKey<FormState>();
@@ -18,13 +18,23 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xff27554e),
+        leading: IconButton(
+            onPressed: () =>
+                Navigator.of(context).pushReplacementNamed('/home'),
+            icon: const Icon(
+              Icons.arrow_back_ios_new_sharp,
+              size: 35,
+            )),
+      ),
       body: Form(
         key: _formKey,
         child: ListView(children: [
           Center(
             child: Column(children: [
               const SizedBox(
-                height: 10,
+                height: 3,
               ),
               CircleAvatar(
                 child: Image.asset('assets/images/icon.png'),
@@ -34,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 20,
               ),
               const Text(
-                'Create your account',
+                'Edit your profile',
                 style: TextStyle(
                   fontSize: 28,
                   fontFamily: 'PoppinsBold',
@@ -42,22 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               const SizedBox(
-                height: 15,
-              ),
-              Row(children: const [
-                SizedBox(width: 25),
-                Text(
-                  'Register to get started',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'RobotoBold',
-                    color: Color(0xff030303),
-                    letterSpacing: 0.12,
-                  ),
-                ),
-              ]),
-              const SizedBox(
-                height: 52,
+                height: 87,
               ),
               SizedBox(
                 width: 374,
@@ -202,7 +197,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       )),
                 child: const Text(
-                  'Register',
+                  'Edit',
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'PoppinsBold',
