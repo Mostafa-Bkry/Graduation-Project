@@ -14,18 +14,108 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Choose Your Sick Plant')),
-        backgroundColor: const Color(0xff27554e),
+        backgroundColor: const Color(0xff3eb489),
       ),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 210, childAspectRatio: .6),
+            maxCrossAxisExtent: 210, childAspectRatio: 1.0),
         children: [
-          Image.asset('assets/images/thirdScreen.png'),
-          Image.asset('assets/images/thirdScreen.png'),
-          Image.asset('assets/images/thirdScreen.png'),
-          Image.asset('assets/images/thirdScreen.png'),
-          Image.asset('assets/images/thirdScreen.png'),
-          Image.asset('assets/images/thirdScreen.png'),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/potato.jpg'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('potato')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/tomato.jpeg'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('tomato')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/pepper.jpg'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('pepper')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/corn.jpeg'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('corn')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/apple.png'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('apple')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Card(
+            clipBehavior: Clip.hardEdge,
+            elevation: 20,
+            margin: const EdgeInsets.all(15.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/strawberry.jpg'),
+                    fit: BoxFit.cover),
+              ),
+              child: RawMaterialButton(onPressed: () => print('strawberry')),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: ConvexAppBar(
@@ -36,9 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
           TabItem(icon: Icons.home, title: 'Home'),
           TabItem(icon: Icons.analytics_sharp, title: 'Analysis'),
           TabItem(icon: Icons.history, title: 'History'),
-          TabItem(icon: Icons.people, title: 'Profile'),
+          TabItem(icon: Icons.emoji_emotions_rounded, title: 'Profile'),
         ],
-        initialActiveIndex: 1,
         onTap: (int i) => clickedIcon(i),
       ),
     );
@@ -47,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //Manage Icons of bottom navigation bar
   void clickedIcon(int i) {
     if (i == 0) {
+      //Navigator.of(context).pushReplacementNamed('/home');
     } else if (i == 1) {
     } else if (i == 2) {
     } else {
@@ -54,6 +144,21 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 }
+
+
+
+/*
+Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/potato.jpg'),
+                      fit: BoxFit.cover)),
+            ),
+*/
+
+
+
+
 /*
 const Text(
             'Welcome Back',

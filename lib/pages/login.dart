@@ -145,7 +145,94 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 50,
               ),
-              ElevatedButton(
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 190,
+                  ),
+                  RawMaterialButton(
+                    onPressed: () => _formKey.currentState!.validate()
+                        ? Navigator.of(context).pushReplacementNamed('/home')
+                        : ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                            padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
+                            content: Text(
+                              'Please fill all',
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontFamily: 'PoppinsBold',
+                                letterSpacing: 1.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )),
+                    elevation: 2.0,
+                    fillColor: const Color(0xff3eb489),
+                    child: const Text(
+                      'LOG IN   >',
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontFamily: 'RobotoBold',
+                        letterSpacing: 1.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(15.0),
+                    constraints: const BoxConstraints(minWidth: 200),
+                    shape: const StadiumBorder(),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Row(children: [
+                const SizedBox(
+                  width: 28,
+                ),
+                const Text(
+                  'Don\'t have any account?',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'RobotoBold',
+                    letterSpacing: 0.12,
+                    color: Colors.black,
+                  ),
+                ),
+                RawMaterialButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/register'),
+                  elevation: 2.0,
+                  child: const Text(
+                    'Sign up',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'RobotoBold',
+                      letterSpacing: 0.12,
+                      color: Color(0xff3eb489),
+                    ),
+                  ),
+                  shape: const StadiumBorder(),
+                ),
+              ]),
+            ]),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+
+/*
+ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          )
+*/
+
+
+/*
+ElevatedButton(
                 onPressed: () => _formKey.currentState!.validate()
                     ? ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
@@ -172,47 +259,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(347, 63)),
+                    minimumSize: MaterialStateProperty.all(const Size(300, 63)),
                     backgroundColor: MaterialStateProperty.all(
-                      const Color(0xff27554e),
+                      const Color(0xff3eb489),
                     )),
               ),
-              const SizedBox(
-                height: 23,
-              ),
-              Row(children: [
-                const SizedBox(
-                  width: 25,
-                ),
-                const Text(
-                  'Don\'t have any account?',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'RobotoBold',
-                    letterSpacing: 0.12,
-                    color: Colors.black,
-                  ),
-                ),
-                RawMaterialButton(
-                  onPressed: () =>
-                      Navigator.of(context).pushReplacementNamed('/register'),
-                  elevation: 2.0,
-                  child: const Text(
-                    'Sign up',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'RobotoBold',
-                      letterSpacing: 0.12,
-                      color: Color(0xff719552),
-                    ),
-                  ),
-                  shape: const StadiumBorder(),
-                ),
-              ]),
-            ]),
-          ),
-        ]),
-      ),
-    );
-  }
-}
+*/

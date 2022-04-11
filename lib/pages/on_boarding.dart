@@ -35,7 +35,8 @@ class _OnBoardingState extends State<OnBoarding> {
             controller: controller,
             count: 3,
             effect: const WormEffect(
-              activeDotColor: Color(0xff27554e),
+              activeDotColor: Color(0xff3eb489),
+              dotColor: Color(0xffd1f0e0),
             ),
             onDotClicked: (index) => controller.animateToPage(
               index,
@@ -68,8 +69,12 @@ class _OnBoardingState extends State<OnBoarding> {
 
   Widget firstOnBoarding() {
     return Column(children: [
-      ClipOval(
-        child: Image.asset('assets/images/secondScreen.png'),
+      SizedBox(
+        height: 445,
+        child: ClipOval(
+          clipper: MyClipperOne(),
+          child: Image.asset('assets/images/secondScreen.png'),
+        ),
       ),
       const SizedBox(
         height: 20,
@@ -90,24 +95,7 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       const SizedBox(
-        height: 35,
-      ),
-      const Text(
-        'identify and better understand all',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const Text(
-        'kinds of plants living in nature',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const SizedBox(
-        height: 35,
+        height: 20,
       ),
       Row(
         children: [
@@ -120,7 +108,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 fontSize: 18,
                 fontFamily: 'RobotoBold',
                 letterSpacing: 1.5,
-                color: Colors.black,
+                color: Color(0xff3eb489),
               ),
             ),
             padding: const EdgeInsets.all(13.0),
@@ -135,18 +123,18 @@ class _OnBoardingState extends State<OnBoarding> {
               duration: const Duration(milliseconds: 650),
               curve: Curves.easeInOut,
             ),
-            elevation: 2.0,
-            fillColor: const Color(0xff27554e),
+            elevation: 5.0,
+            fillColor: const Color(0xff3eb489),
             child: const Text(
-              'NEXT',
+              '>',
               style: TextStyle(
-                fontSize: 23,
+                fontSize: 40,
                 fontFamily: 'RobotoBold',
                 letterSpacing: 1.5,
                 color: Colors.white,
               ),
             ),
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(9.0),
             constraints: const BoxConstraints(minWidth: 142),
             shape: const StadiumBorder(),
           ),
@@ -157,43 +145,21 @@ class _OnBoardingState extends State<OnBoarding> {
 
   Widget secondOnBoarding() {
     return Column(children: [
+      const SizedBox(
+        height: 40,
+      ),
       ClipOval(
-        //clipper: MyClipper(),
+        clipper: MyClipperTow(),
         child: Image.asset('assets/images/thirdScreen.png'),
       ),
       const SizedBox(
-        height: 20,
+        height: 50,
       ),
       const Text(
-        'Advice',
+        'Advice for the best treatment',
         style: TextStyle(
           fontSize: 26,
           fontFamily: 'RobotoBold',
-        ),
-      ),
-      const Text(
-        'For The Best Treatment Methods',
-        style: TextStyle(
-          fontSize: 26,
-          //fontWeight: FontWeight.bold,
-          fontFamily: 'RobotoBold',
-        ),
-      ),
-      const SizedBox(
-        height: 37,
-      ),
-      const Text(
-        'just take a photo of the planet',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const Text(
-        'you get the solution for it',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
         ),
       ),
       const SizedBox(
@@ -210,7 +176,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 fontSize: 18,
                 fontFamily: 'RobotoBold',
                 letterSpacing: 1.5,
-                color: Colors.black,
+                color: Color(0xff3eb489),
               ),
             ),
             padding: const EdgeInsets.all(13.0),
@@ -225,18 +191,18 @@ class _OnBoardingState extends State<OnBoarding> {
               duration: const Duration(milliseconds: 650),
               curve: Curves.easeInOut,
             ),
-            elevation: 2.0,
-            fillColor: const Color(0xff27554e),
+            elevation: 5.0,
+            fillColor: const Color(0xff3eb489),
             child: const Text(
-              'NEXT',
+              '>',
               style: TextStyle(
-                fontSize: 23,
+                fontSize: 40,
                 fontFamily: 'RobotoBold',
                 letterSpacing: 1.5,
                 color: Colors.white,
               ),
             ),
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(9.0),
             constraints: const BoxConstraints(minWidth: 142),
             shape: const StadiumBorder(),
           ),
@@ -247,8 +213,15 @@ class _OnBoardingState extends State<OnBoarding> {
 
   Widget thirdOnBoarding() {
     return Column(children: [
+      const SizedBox(
+        height: 25,
+      ),
       ClipOval(
+        clipper: MyClipperThree(),
         child: Image.asset('assets/images/fourthScreen.png'),
+      ),
+      const SizedBox(
+        height: 40,
       ),
       const Text(
         'Recommendation',
@@ -258,7 +231,7 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       const Text(
-        'For The Best Treatment Products',
+        'For the best treatment products',
         style: TextStyle(
           fontSize: 26,
           //fontWeight: FontWeight.bold,
@@ -266,37 +239,13 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       const SizedBox(
-        height: 20,
-      ),
-      const Text(
-        'after your plant instantly recognized',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const Text(
-        'you get the product that you must',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const Text(
-        'use it for the treatment',
-        style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'RobotoReqular',
-        ),
-      ),
-      const SizedBox(
-        height: 28,
+        height: 50,
       ),
       Center(
         child: RawMaterialButton(
           onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
-          elevation: 2.0,
-          fillColor: const Color(0xff27554e),
+          elevation: 5.0,
+          fillColor: const Color(0xff3eb489),
           child: const Text(
             'Get Started',
             style: TextStyle(
@@ -306,7 +255,7 @@ class _OnBoardingState extends State<OnBoarding> {
               color: Colors.white,
             ),
           ),
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           constraints: const BoxConstraints(minWidth: 244),
           shape: const StadiumBorder(),
         ),
@@ -315,12 +264,10 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 }
 
-
-/*
-class MyClipper extends CustomClipper<Rect> {
+class MyClipperTow extends CustomClipper<Rect> {
   @override
   getClip(Size size) {
-    return const Rect.fromLTWH(0, 0, 400, 300);
+    return const Rect.fromLTRB(0, 0, 600, 500);
   }
 
   @override
@@ -328,4 +275,27 @@ class MyClipper extends CustomClipper<Rect> {
     return true;
   }
 }
-*/
+
+class MyClipperThree extends CustomClipper<Rect> {
+  @override
+  getClip(Size size) {
+    return const Rect.fromLTRB(-30, -180, 490, 490);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+  }
+}
+
+class MyClipperOne extends CustomClipper<Rect> {
+  @override
+  getClip(Size size) {
+    return const Rect.fromLTRB(-50, 0, 500, 480);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+  }
+}

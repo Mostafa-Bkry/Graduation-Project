@@ -19,7 +19,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xff27554e),
+        backgroundColor: const Color(0xff3eb489),
         leading: IconButton(
             onPressed: () =>
                 Navigator.of(context).pushReplacementNamed('/home'),
@@ -34,7 +34,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           Center(
             child: Column(children: [
               const SizedBox(
-                height: 3,
+                height: 10,
               ),
               CircleAvatar(
                 child: Image.asset('assets/images/icon.png'),
@@ -52,7 +52,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
               ),
               const SizedBox(
-                height: 87,
+                height: 49,
               ),
               SizedBox(
                 width: 374,
@@ -208,7 +208,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(347, 63)),
                     backgroundColor: MaterialStateProperty.all(
-                      const Color(0xff27554e),
+                      const Color(0xff3eb489),
                     )),
               ),
               const SizedBox(

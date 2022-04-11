@@ -150,7 +150,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       : null,
                   keyboardType: TextInputType.text,
                   obscureText: _showORnot,
-                  textInputAction: TextInputAction.next,
+                  textInputAction: TextInputAction.done,
                   autocorrect: false,
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -184,41 +184,78 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 40,
               ),
-              ElevatedButton(
-                onPressed: () => _formKey.currentState!.validate()
-                    ? ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
-                      )
-                    : ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
-                        content: Text(
-                          'Please fill all',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontFamily: 'PoppinsBold',
-                            letterSpacing: 1.5,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )),
-                child: const Text(
-                  'Register',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'PoppinsBold',
-                    letterSpacing: 1.5,
-                    color: Colors.white,
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 190,
                   ),
-                ),
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(347, 63)),
-                    backgroundColor: MaterialStateProperty.all(
-                      const Color(0xff27554e),
-                    )),
+                  RawMaterialButton(
+                    onPressed: () => _formKey.currentState!.validate()
+                        ? ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          )
+                        : ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                            padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
+                            content: Text(
+                              'Please fill all',
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontFamily: 'PoppinsBold',
+                                letterSpacing: 1.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )),
+                    elevation: 2.0,
+                    fillColor: const Color(0xff3eb489),
+                    child: const Text(
+                      'SIGN UP   >',
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontFamily: 'RobotoBold',
+                        letterSpacing: 1.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(15.0),
+                    constraints: const BoxConstraints(minWidth: 200),
+                    shape: const StadiumBorder(),
+                  ),
+                ],
               ),
               const SizedBox(
-                height: 23,
+                height: 35,
               ),
+              Row(children: [
+                const SizedBox(
+                  width: 38,
+                ),
+                const Text(
+                  'Allready have account?',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'RobotoBold',
+                    letterSpacing: 0.12,
+                    color: Colors.black,
+                  ),
+                ),
+                RawMaterialButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/login'),
+                  elevation: 2.0,
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'RobotoBold',
+                      letterSpacing: 0.12,
+                      color: Color(0xff3eb489),
+                    ),
+                  ),
+                  shape: const StadiumBorder(),
+                ),
+              ])
             ]),
           ),
         ]),
