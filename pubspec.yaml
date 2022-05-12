@@ -37,6 +37,8 @@ dependencies:
   flutter_spinkit: ^5.1.0
   smooth_page_indicator: ^1.0.0+2
   convex_bottom_bar: ^3.0.0
+  #flutter_speed_dial: ^6.0.0
+  #speed_dial_fab: ^2.2.1
 
 dev_dependencies:
   flutter_test:

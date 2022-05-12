@@ -13,7 +13,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Choose Your Sick Plant')),
+        title: const Center(
+          child: Text('Choose Your Sick Plant'),
+        ),
         backgroundColor: const Color(0xff3eb489),
       ),
       body: GridView(
@@ -31,7 +33,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('potato'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
@@ -60,7 +100,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('tomato'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
@@ -89,7 +167,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('pepper'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
@@ -118,7 +234,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('corn'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
@@ -147,7 +301,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('apple'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
@@ -176,7 +368,45 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover),
               ),
               child: RawMaterialButton(
-                onPressed: () => print('Strawberry'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (_) => Dialog(
+                    elevation: 6.0,
+                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 22,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Choose How To Pick Your Image',
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87),
+                          ),
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/camera.png'),
+                          iconSize: 65,
+                        ),
+                        IconButton(
+                          splashColor: Colors.black,
+                          onPressed: () => {},
+                          icon: Image.asset('assets/images/gallery.png'),
+                          iconSize: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
