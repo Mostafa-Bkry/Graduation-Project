@@ -12,6 +12,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _controllerForUserName = TextEditingController();
+  final _controllerForEmail = TextEditingController();
   final _controllerForPass = TextEditingController();
   bool _showORnot = true;
 
@@ -20,8 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       body: Form(
         key: _formKey,
-        child: ListView(children: [
-          Center(
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(children: [
               const SizedBox(
                 height: 10,
@@ -104,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 374,
                 height: 63,
                 child: TextFormField(
-                  controller: _controllerForPass,
+                  controller: _controllerForEmail,
                   validator: (value) => value == null || value.isEmpty
                       ? 'Please enter your e-mail'
                       : null,
@@ -185,27 +186,28 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 40,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const SizedBox(
-                    width: 190,
-                  ),
                   RawMaterialButton(
                     onPressed: () => _formKey.currentState!.validate()
                         ? ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Processing Data')),
                           )
-                        : ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                            padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
-                            content: Text(
-                              'Please fill all',
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontFamily: 'PoppinsBold',
-                                letterSpacing: 1.5,
-                                color: Colors.white,
-                              ),
-                            ),
+                        : ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            duration: const Duration(seconds: 1),
+                            content: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    'Please fill all',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'PoppinsBold',
+                                      letterSpacing: 1.5,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]),
                           )),
                     elevation: 2.0,
                     fillColor: const Color(0xff3eb489),
@@ -222,15 +224,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     constraints: const BoxConstraints(minWidth: 200),
                     shape: const StadiumBorder(),
                   ),
+                  const SizedBox(
+                    width: 13,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 35,
               ),
-              Row(children: [
-                const SizedBox(
-                  width: 38,
-                ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   'Allready have account?',
                   style: TextStyle(
@@ -240,10 +242,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     color: Colors.black,
                   ),
                 ),
-                RawMaterialButton(
+                TextButton(
                   onPressed: () =>
                       Navigator.of(context).pushReplacementNamed('/login'),
-                  elevation: 2.0,
                   child: const Text(
                     'Login',
                     style: TextStyle(
@@ -253,12 +254,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: Color(0xff3eb489),
                     ),
                   ),
-                  shape: const StadiumBorder(),
                 ),
               ])
             ]),
           ),
-        ]),
+        ),
       ),
     );
   }

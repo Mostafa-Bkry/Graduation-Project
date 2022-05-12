@@ -30,8 +30,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
       body: Form(
         key: _formKey,
-        child: ListView(children: [
-          Center(
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(children: [
               const SizedBox(
                 height: 10,
@@ -184,17 +184,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ? ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Processing Data')),
                       )
-                    : ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
-                        content: Text(
-                          'Please fill all',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontFamily: 'PoppinsBold',
-                            letterSpacing: 1.5,
-                            color: Colors.white,
-                          ),
-                        ),
+                    : ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        duration: const Duration(seconds: 1),
+                        content: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Please fill all',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  fontFamily: 'PoppinsBold',
+                                  letterSpacing: 1.5,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ]),
                       )),
                 child: const Text(
                   'Edit',
@@ -216,7 +220,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
             ]),
           ),
-        ]),
+        ),
       ),
     );
   }

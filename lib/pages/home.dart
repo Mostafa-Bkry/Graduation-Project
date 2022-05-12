@@ -30,7 +30,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/potato.jpg'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('potato')),
+              child: RawMaterialButton(
+                onPressed: () => print('potato'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Potato',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -46,7 +59,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/tomato.jpeg'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('tomato')),
+              child: RawMaterialButton(
+                onPressed: () => print('tomato'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Tomato',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -62,7 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/pepper.jpg'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('pepper')),
+              child: RawMaterialButton(
+                onPressed: () => print('pepper'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Pepper',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -78,7 +117,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/corn.jpeg'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('corn')),
+              child: RawMaterialButton(
+                onPressed: () => print('corn'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Corn',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -94,7 +146,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/apple.png'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('apple')),
+              child: RawMaterialButton(
+                onPressed: () => print('apple'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Apple',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -110,7 +175,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: AssetImage('assets/images/strawberry.jpg'),
                     fit: BoxFit.cover),
               ),
-              child: RawMaterialButton(onPressed: () => print('strawberry')),
+              child: RawMaterialButton(
+                onPressed: () => print('Strawberry'),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Strawberry',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(225, 255, 253, 253)),
+                      ),
+                    ]),
+              ),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),

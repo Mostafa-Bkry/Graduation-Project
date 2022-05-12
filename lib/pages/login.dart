@@ -11,7 +11,8 @@ class _LoginPageState extends State<LoginPage> {
   //To Manage login Button go to ScaffoldMessenger
 
   final _formKey = GlobalKey<FormState>();
-  final _controller = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
   bool _showORnot = true;
 
   @override
@@ -19,8 +20,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Form(
         key: _formKey,
-        child: ListView(children: [
-          Center(
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(children: [
               const SizedBox(
                 height: 10,
@@ -62,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: 374,
                 height: 63,
                 child: TextFormField(
-                  controller: _controller,
+                  controller: _emailController,
                   validator: (value) => value == null || value.isEmpty
                       ? 'Please enter your name'
                       : null,
@@ -71,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                   autocorrect: false,
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        onPressed: () => _controller.clear(),
+                        onPressed: () => _emailController.clear(),
                         icon: const Icon(
                           Icons.clear,
                         ),
@@ -103,6 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: 374,
                 height: 63,
                 child: TextFormField(
+                  controller: _passController,
                   validator: (value) => value == null || value.isEmpty
                       ? 'Please enter your password'
                       : null,
@@ -146,25 +148,26 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const SizedBox(
-                    width: 190,
-                  ),
                   RawMaterialButton(
                     onPressed: () => _formKey.currentState!.validate()
                         ? Navigator.of(context).pushReplacementNamed('/home')
-                        : ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                            padding: EdgeInsets.fromLTRB(136, 10, 136, 10),
-                            content: Text(
-                              'Please fill all',
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontFamily: 'PoppinsBold',
-                                letterSpacing: 1.5,
-                                color: Colors.white,
-                              ),
-                            ),
+                        : ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            duration: const Duration(seconds: 1),
+                            content: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    'Please fill all',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'PoppinsBold',
+                                      letterSpacing: 1.5,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]),
                           )),
                     elevation: 2.0,
                     fillColor: const Color(0xff3eb489),
@@ -181,15 +184,15 @@ class _LoginPageState extends State<LoginPage> {
                     constraints: const BoxConstraints(minWidth: 200),
                     shape: const StadiumBorder(),
                   ),
+                  const SizedBox(
+                    width: 13,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 100,
               ),
-              Row(children: [
-                const SizedBox(
-                  width: 28,
-                ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
                   'Don\'t have any account?',
                   style: TextStyle(
@@ -199,10 +202,10 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.black,
                   ),
                 ),
-                RawMaterialButton(
+                TextButton(
                   onPressed: () =>
                       Navigator.of(context).pushReplacementNamed('/register'),
-                  elevation: 2.0,
+                  //elevation: 2.0,
                   child: const Text(
                     'Sign up',
                     style: TextStyle(
@@ -212,12 +215,12 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color(0xff3eb489),
                     ),
                   ),
-                  shape: const StadiumBorder(),
+                  //shape: const StadiumBorder(),
                 ),
               ]),
             ]),
           ),
-        ]),
+        ),
       ),
     );
   }
