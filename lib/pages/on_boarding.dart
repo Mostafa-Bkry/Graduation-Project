@@ -67,17 +67,19 @@ class _OnBoardingState extends State<OnBoarding> {
     }
   }
 
+//First onboarding
   Widget firstOnBoarding() {
-    return Column(children: [
-      SizedBox(
-        height: 445,
-        child: ClipOval(
-          clipper: MyClipperOne(),
-          child: Image.asset('assets/images/secondScreen.png'),
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Expanded(
+        child: Center(
+          child: ClipOval(
+            clipper: MyClipperOne(),
+            child: Image.asset('assets/images/secondScreen.png'),
+          ),
         ),
       ),
       const SizedBox(
-        height: 20,
+        height: 10,
       ),
       const Text(
         'Immediate',
@@ -95,9 +97,10 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       const SizedBox(
-        height: 20,
+        height: 25,
       ),
       Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RawMaterialButton(
             onPressed: () => controller.jumpToPage(2),
@@ -116,7 +119,7 @@ class _OnBoardingState extends State<OnBoarding> {
             shape: const StadiumBorder(),
           ),
           const SizedBox(
-            width: 95,
+            width: 90,
           ),
           RawMaterialButton(
             onPressed: () => controller.nextPage(
@@ -140,20 +143,23 @@ class _OnBoardingState extends State<OnBoarding> {
           ),
         ],
       ),
+      const SizedBox(
+        height: 25,
+      ),
     ]);
   }
 
+//Second onboarding
   Widget secondOnBoarding() {
-    return Column(children: [
-      const SizedBox(
-        height: 40,
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Expanded(
+        child: ClipOval(
+          clipper: MyClipperTow(),
+          child: Image.asset('assets/images/thirdScreen.png'),
+        ),
       ),
-      ClipOval(
-        clipper: MyClipperTow(),
-        child: Image.asset('assets/images/thirdScreen.png'),
-      ),
       const SizedBox(
-        height: 50,
+        height: 30,
       ),
       const Text(
         'Advice for the best treatment',
@@ -166,6 +172,7 @@ class _OnBoardingState extends State<OnBoarding> {
         height: 31,
       ),
       Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RawMaterialButton(
             onPressed: () => controller.jumpToPage(2),
@@ -184,7 +191,7 @@ class _OnBoardingState extends State<OnBoarding> {
             shape: const StadiumBorder(),
           ),
           const SizedBox(
-            width: 95,
+            width: 90,
           ),
           RawMaterialButton(
             onPressed: () => controller.nextPage(
@@ -208,20 +215,23 @@ class _OnBoardingState extends State<OnBoarding> {
           ),
         ],
       ),
-    ]);
-  }
-
-  Widget thirdOnBoarding() {
-    return Column(children: [
       const SizedBox(
         height: 25,
       ),
-      ClipOval(
-        clipper: MyClipperThree(),
-        child: Image.asset('assets/images/fourthScreen.png'),
+    ]);
+  }
+
+//Third onboarding
+  Widget thirdOnBoarding() {
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Expanded(
+        child: ClipOval(
+          clipper: MyClipperThree(),
+          child: Image.asset('assets/images/fourthScreen.png'),
+        ),
       ),
       const SizedBox(
-        height: 40,
+        height: 30,
       ),
       const Text(
         'Recommendation',
@@ -239,31 +249,46 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
       const SizedBox(
-        height: 50,
+        height: 30,
       ),
-      Center(
-        child: RawMaterialButton(
-          onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
-          elevation: 5.0,
-          fillColor: const Color(0xff3eb489),
-          child: const Text(
-            'Get Started',
-            style: TextStyle(
-              fontSize: 23,
-              fontFamily: 'RobotoBold',
-              letterSpacing: 1.5,
-              color: Colors.white,
-            ),
+      RawMaterialButton(
+        onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
+        elevation: 5.0,
+        fillColor: const Color(0xff3eb489),
+        child: const Text(
+          'Get Started',
+          style: TextStyle(
+            fontSize: 23,
+            fontFamily: 'RobotoBold',
+            letterSpacing: 1.5,
+            color: Colors.white,
           ),
-          padding: const EdgeInsets.all(20.0),
-          constraints: const BoxConstraints(minWidth: 244),
-          shape: const StadiumBorder(),
         ),
+        padding: const EdgeInsets.all(20.0),
+        constraints: const BoxConstraints(minWidth: 244),
+        shape: const StadiumBorder(),
+      ),
+      const SizedBox(
+        height: 30,
       ),
     ]);
   }
 }
 
+//First specifications for Clipper of the first onboarding
+class MyClipperOne extends CustomClipper<Rect> {
+  @override
+  getClip(Size size) {
+    return const Rect.fromLTRB(-50, 0, 500, 480);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return true;
+  }
+}
+
+//Second specifications for Clipper of the second onboarding
 class MyClipperTow extends CustomClipper<Rect> {
   @override
   getClip(Size size) {
@@ -276,22 +301,11 @@ class MyClipperTow extends CustomClipper<Rect> {
   }
 }
 
+//Third specifications for Clipper of the third onboarding
 class MyClipperThree extends CustomClipper<Rect> {
   @override
   getClip(Size size) {
     return const Rect.fromLTRB(-30, -180, 490, 490);
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper oldClipper) {
-    return true;
-  }
-}
-
-class MyClipperOne extends CustomClipper<Rect> {
-  @override
-  getClip(Size size) {
-    return const Rect.fromLTRB(-50, 0, 500, 480);
   }
 
   @override
