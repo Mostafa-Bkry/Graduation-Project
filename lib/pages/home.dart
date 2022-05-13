@@ -1,5 +1,8 @@
+import 'dart:io';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -9,6 +12,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  File? image;
+
+  Future picImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
+      print(this.image);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  // Future picImageByGallery() async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //     if (image == null) return;
+  //     final imageTemp = File(image.path);
+  //     setState(() => this.image = imageTemp);
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
+
+  // Future picImageByCamera() async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: ImageSource.camera);
+  //     if (image == null) return;
+  //     final imageTemp = File(image.path);
+  //     setState(() => this.image = imageTemp);
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,13 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
