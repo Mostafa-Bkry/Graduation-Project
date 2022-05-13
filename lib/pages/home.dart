@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../components/my_drawer.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -21,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       final imageTemp = File(image.path);
       setState(() => this.image = imageTemp);
-      print(this.image);
+      //print(this.image);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
@@ -52,9 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
       appBar: AppBar(
-        title: const Center(
-          child: Text('Choose Your Sick Plant'),
+        centerTitle: true,
+        title: const Text(
+          'Choose Your Sick Plant',
+          style: TextStyle(
+              letterSpacing: 2,
+              shadows: [
+                Shadow(color: Colors.white, blurRadius: 15),
+              ],
+              fontSize: 25),
         ),
         backgroundColor: const Color(0xff3eb489),
       ),
@@ -118,6 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Potato',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
@@ -165,13 +179,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -185,6 +199,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Tomato',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
@@ -232,13 +250,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -252,6 +270,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Pepper',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
@@ -299,13 +321,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -319,6 +341,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Corn',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
@@ -366,13 +392,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -386,6 +412,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Apple',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
@@ -433,13 +463,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.camera),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => {},
+                          onPressed: () => picImage(ImageSource.gallery),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -453,6 +483,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Strawberry',
                         style: TextStyle(
+                            letterSpacing: 2,
+                            shadows: [
+                              Shadow(color: Colors.white, blurRadius: 15),
+                            ],
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(225, 255, 253, 253)),
