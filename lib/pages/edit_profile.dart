@@ -34,14 +34,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: SingleChildScrollView(
             child: Column(children: [
               const SizedBox(
-                height: 10,
+                height: 8,
               ),
               CircleAvatar(
                 child: Image.asset('assets/images/icon.png'),
                 radius: 30,
               ),
               const SizedBox(
-                height: 20,
+                height: 18,
               ),
               const Text(
                 'Edit your profile',
@@ -52,7 +52,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
               ),
               const SizedBox(
-                height: 49,
+                height: 47,
               ),
               SizedBox(
                 width: 374,
@@ -177,7 +177,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 48,
               ),
               ElevatedButton(
                 onPressed: () => _formKey.currentState!.validate()

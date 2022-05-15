@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/pages/accepting_photo.dart';
+import 'package:project/pages/analysis.dart';
 import 'package:project/pages/edit_profile.dart';
+import 'package:project/pages/history.dart';
 import 'package:project/pages/home.dart';
 import 'package:project/pages/login.dart';
 import 'package:project/pages/on_boarding.dart';
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/register': (_) => const RegisterPage(),
         '/edit_profile': (_) => const EditProfilePage(),
         '/accept_photo': (_) => const AcceptPhoto(),
+        '/analysis_result': (_) => const AnalysisResult(),
+        '/history': (_) => const History(),
       },
     );
   }

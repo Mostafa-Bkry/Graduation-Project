@@ -20,7 +20,7 @@ class AcceptPhoto extends StatelessWidget {
               fontSize: 25),
         ),
         leading: IconButton(
-          onPressed: () => Navigator.of(context).pushNamed('/home'),
+          onPressed: () => Navigator.of(context).pushReplacementNamed('/home'),
           icon: const Icon(
             Icons.arrow_back_ios_new_sharp,
             size: 35,
@@ -46,7 +46,8 @@ class AcceptPhoto extends StatelessWidget {
                       const Color(0xff3eb489),
                     ),
                   ),
-                  onPressed: () => {print('Analys')},
+                  onPressed: () => Navigator.of(context)
+                      .pushReplacementNamed('/analysis_result'),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -58,7 +59,7 @@ class AcceptPhoto extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        'Analys',
+                        'Analyse',
                         style: TextStyle(
                           fontSize: 30,
                           fontFamily: 'PoppinsBold',

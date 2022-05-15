@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       final imageTemp = File(image.path);
       setState(() => this.image = imageTemp);
-      Navigator.of(context)
+      await Navigator.of(context)
           .pushReplacementNamed('/accept_photo', arguments: this.image);
 
       //print(this.image);
@@ -563,7 +563,9 @@ class _MyHomePageState extends State<MyHomePage> {
     if (i == 0) {
       //Navigator.of(context).pushReplacementNamed('/home');
     } else if (i == 1) {
+      Navigator.of(context).pushReplacementNamed('/analysis_result');
     } else if (i == 2) {
+      Navigator.of(context).pushReplacementNamed('/history');
     } else {
       Navigator.of(context).pushReplacementNamed('/edit_profile');
     }
