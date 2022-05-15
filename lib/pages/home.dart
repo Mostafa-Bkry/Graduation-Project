@@ -3,6 +3,8 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+//import 'package:path_provider/path_provider.dart';
+//import 'package:path/path.dart';
 
 import '../components/my_drawer.dart';
 
@@ -16,18 +18,47 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   File? image;
 
-  Future picImage(ImageSource source) async {
+  Future picImage(ImageSource source, BuildContext context) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
 
       final imageTemp = File(image.path);
       setState(() => this.image = imageTemp);
+      Navigator.of(context)
+          .pushReplacementNamed('/accept_photo', arguments: this.image);
+
       //print(this.image);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
   }
+
+/*
+  Future picImage(ImageSource source, BuildContext context) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      // final imageTemp = File(image.path);
+      // setState(() => this.image = imageTemp);
+      final imageperm = await saveImagePermanently(image.path);
+      setState(() => this.image = imageperm);
+      Navigator.of(context).pushReplacementNamed('/accept_photo');
+
+      //print(this.image);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+    return File(imagePath).copy(image.path);
+  }
+  */
 
   // Future picImageByGallery() async {
   //   try {
@@ -108,13 +139,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -179,13 +212,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -250,13 +285,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -321,13 +358,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -392,13 +431,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -463,13 +504,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.camera),
+                          onPressed: () =>
+                              picImage(ImageSource.camera, context),
                           icon: Image.asset('assets/images/camera.png'),
                           iconSize: 65,
                         ),
                         IconButton(
                           splashColor: Colors.black,
-                          onPressed: () => picImage(ImageSource.gallery),
+                          onPressed: () =>
+                              picImage(ImageSource.gallery, context),
                           icon: Image.asset('assets/images/gallery.png'),
                           iconSize: 60,
                         ),
@@ -510,13 +553,13 @@ class _MyHomePageState extends State<MyHomePage> {
           TabItem(icon: Icons.history, title: 'History'),
           TabItem(icon: Icons.emoji_emotions_rounded, title: 'Profile'),
         ],
-        onTap: (int i) => clickedIcon(i),
+        onTap: (int i) => clickedIcon(i, context),
       ),
     );
   }
 
   //Manage Icons of bottom navigation bar
-  void clickedIcon(int i) {
+  void clickedIcon(int i, BuildContext context) {
     if (i == 0) {
       //Navigator.of(context).pushReplacementNamed('/home');
     } else if (i == 1) {

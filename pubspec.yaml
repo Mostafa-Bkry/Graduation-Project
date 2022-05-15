@@ -38,6 +38,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   convex_bottom_bar: ^3.0.0
   image_picker: ^0.8.5+2
+  path_provider: ^2.0.10
   #provider: ^6.0.2
   #flutter_speed_dial: ^6.0.0
   #speed_dial_fab: ^2.2.1

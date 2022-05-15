@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/accepting_photo.dart';
 import 'package:project/pages/edit_profile.dart';
 import 'package:project/pages/home.dart';
 import 'package:project/pages/login.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/login': (_) => const LoginPage(),
         '/register': (_) => const RegisterPage(),
         '/edit_profile': (_) => const EditProfilePage(),
+        '/accept_photo': (_) => const AcceptPhoto(),
       },
     );
   }
