@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../shared/components/components.dart';
+import '../../shared/components/constants.dart';
+
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
 
@@ -10,7 +13,6 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   int currentIndex = 0;
-  final controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -102,44 +104,23 @@ class _OnBoardingState extends State<OnBoarding> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RawMaterialButton(
-            onPressed: () => controller.jumpToPage(2),
-            elevation: 2.0,
-            child: const Text(
-              'SKIP',
-              style: TextStyle(
-                fontSize: 18,
-                fontFamily: 'RobotoBold',
-                letterSpacing: 1.5,
-                color: Color(0xff3eb489),
-              ),
-            ),
+          commonUsedButton(
+            function: () => controller.jumpToPage(2),
+            elevation: 0.0,
+            text: 'SKIP',
+            fontSize: 18,
+            textColor: const Color(0xff3eb489),
             padding: const EdgeInsets.all(13.0),
-            constraints: const BoxConstraints(minWidth: 142),
-            shape: const StadiumBorder(),
+            fillColor: Colors.transparent,
           ),
           const SizedBox(
             width: 90,
           ),
-          RawMaterialButton(
-            onPressed: () => controller.nextPage(
+          commonUsedButton(
+            function: () => controller.nextPage(
               duration: const Duration(milliseconds: 650),
               curve: Curves.easeInOut,
             ),
-            elevation: 5.0,
-            fillColor: const Color(0xff3eb489),
-            child: const Text(
-              '>',
-              style: TextStyle(
-                fontSize: 40,
-                fontFamily: 'RobotoBold',
-                letterSpacing: 1.5,
-                color: Colors.white,
-              ),
-            ),
-            padding: const EdgeInsets.all(9.0),
-            constraints: const BoxConstraints(minWidth: 142),
-            shape: const StadiumBorder(),
           ),
         ],
       ),
@@ -174,44 +155,23 @@ class _OnBoardingState extends State<OnBoarding> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RawMaterialButton(
-            onPressed: () => controller.jumpToPage(2),
-            elevation: 2.0,
-            child: const Text(
-              'SKIP',
-              style: TextStyle(
-                fontSize: 18,
-                fontFamily: 'RobotoBold',
-                letterSpacing: 1.5,
-                color: Color(0xff3eb489),
-              ),
-            ),
+          commonUsedButton(
+            function: () => controller.jumpToPage(2),
+            elevation: 0.0,
+            text: 'SKIP',
+            fontSize: 18,
+            textColor: const Color(0xff3eb489),
             padding: const EdgeInsets.all(13.0),
-            constraints: const BoxConstraints(minWidth: 142),
-            shape: const StadiumBorder(),
+            fillColor: Colors.transparent,
           ),
           const SizedBox(
             width: 90,
           ),
-          RawMaterialButton(
-            onPressed: () => controller.nextPage(
+          commonUsedButton(
+            function: () => controller.nextPage(
               duration: const Duration(milliseconds: 650),
               curve: Curves.easeInOut,
             ),
-            elevation: 5.0,
-            fillColor: const Color(0xff3eb489),
-            child: const Text(
-              '>',
-              style: TextStyle(
-                fontSize: 40,
-                fontFamily: 'RobotoBold',
-                letterSpacing: 1.5,
-                color: Colors.white,
-              ),
-            ),
-            padding: const EdgeInsets.all(9.0),
-            constraints: const BoxConstraints(minWidth: 142),
-            shape: const StadiumBorder(),
           ),
         ],
       ),
@@ -251,22 +211,12 @@ class _OnBoardingState extends State<OnBoarding> {
       const SizedBox(
         height: 30,
       ),
-      RawMaterialButton(
-        onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
-        elevation: 5.0,
-        fillColor: const Color(0xff3eb489),
-        child: const Text(
-          'Get Started',
-          style: TextStyle(
-            fontSize: 23,
-            fontFamily: 'RobotoBold',
-            letterSpacing: 1.5,
-            color: Colors.white,
-          ),
-        ),
+      commonUsedButton(
+        function: () => Navigator.of(context).pushReplacementNamed('/login'),
+        text: 'Get Started',
+        fontSize: 23,
         padding: const EdgeInsets.all(20.0),
         constraints: const BoxConstraints(minWidth: 244),
-        shape: const StadiumBorder(),
       ),
       const SizedBox(
         height: 30,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/nav_and_drawer/bottom_nav_bar.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -21,12 +22,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
       appBar: AppBar(
         backgroundColor: const Color(0xff3eb489),
         leading: IconButton(
-            onPressed: () =>
-                Navigator.of(context).pushReplacementNamed('/home'),
-            icon: const Icon(
-              Icons.arrow_back_ios_new_sharp,
-              size: 35,
-            )),
+          onPressed: () {
+            BottomNavBar.index = 0;
+            Navigator.of(context).pushReplacementNamed('/home');
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_sharp,
+            size: 35,
+          ),
+        ),
       ),
       body: Form(
         key: _formKey,

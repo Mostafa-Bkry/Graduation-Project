@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:project/pages/accepting_photo.dart';
-import 'package:project/pages/analysis.dart';
-import 'package:project/pages/edit_profile.dart';
-import 'package:project/pages/history.dart';
-import 'package:project/pages/home.dart';
-import 'package:project/pages/login.dart';
-import 'package:project/pages/on_boarding.dart';
-import 'package:project/pages/loading.dart';
-import 'package:project/pages/register.dart';
+import 'package:project/modules/accepting_photo.dart';
+import 'package:project/modules/analysis.dart';
+import 'package:project/modules/edit_profile.dart';
+import 'package:project/modules/history.dart';
+import 'package:project/layout/home.dart';
+import 'package:project/modules/login/login.dart';
+import 'package:project/modules/loading_onboarding/on_boarding.dart';
+import 'package:project/modules/loading_onboarding/loading.dart';
+import 'package:project/modules/login/register.dart';
 
 void main() {
   runApp(const MyApp());

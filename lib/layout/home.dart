@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 //import 'package:path_provider/path_provider.dart';
 //import 'package:path/path.dart';
 
-import '../components/my_drawer.dart';
+import '../nav_and_drawer/bottom_nav_bar.dart';
+import '../nav_and_drawer/my_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -543,33 +543,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: ConvexAppBar(
-        color: const Color(0xff3f414e),
-        activeColor: Colors.green,
-        backgroundColor: Colors.white,
-        items: const [
-          TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.analytics_sharp, title: 'Analysis'),
-          TabItem(icon: Icons.history, title: 'History'),
-          TabItem(icon: Icons.emoji_emotions_rounded, title: 'Profile'),
-        ],
-        onTap: (int i) => clickedIcon(i, context),
-      ),
+      bottomNavigationBar: BottomNavBar.convexBar(context),
     );
   }
 
-  //Manage Icons of bottom navigation bar
-  void clickedIcon(int i, BuildContext context) {
-    if (i == 0) {
-      //Navigator.of(context).pushReplacementNamed('/home');
-    } else if (i == 1) {
-      Navigator.of(context).pushReplacementNamed('/analysis_result');
-    } else if (i == 2) {
-      Navigator.of(context).pushReplacementNamed('/history');
-    } else {
-      Navigator.of(context).pushReplacementNamed('/edit_profile');
-    }
-  }
+  // //Manage Icons of bottom navigation bar
+  // void clickedIcon(int i, BuildContext context) {
+  //   if (i == 0) {
+  //     //Navigator.of(context).pushReplacementNamed('/home');
+  //   } else if (i == 1) {
+  //     Navigator.of(context).pushReplacementNamed('/analysis_result');
+  //   } else if (i == 2) {
+  //     Navigator.of(context).pushReplacementNamed('/history');
+  //   } else {
+  //     Navigator.of(context).pushReplacementNamed('/edit_profile');
+  //   }
+  // }
 }
 
 
