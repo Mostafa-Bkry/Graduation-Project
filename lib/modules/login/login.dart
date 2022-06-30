@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/shared/components/components.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,203 +23,194 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: Center(
           child: SingleChildScrollView(
-            child: Column(children: [
-              const SizedBox(
-                height: 10,
-              ),
-              CircleAvatar(
-                child: Image.asset('assets/images/icon.png'),
-                radius: 30,
-              ),
-              const SizedBox(
-                height: 23,
-              ),
-              const Text(
-                'Welcome Back',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontFamily: 'PoppinsBold',
-                  color: Color(0xff3f414e),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(children: const [
-                SizedBox(width: 25),
-                Text(
-                  'login to continue',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'RobotoBold',
-                    color: Color(0xff030303),
-                    letterSpacing: 0.12,
-                  ),
+                CircleAvatar(
+                  child: Image.asset('assets/images/icon.png'),
+                  radius: 30,
                 ),
-              ]),
-              const SizedBox(
-                height: 52,
-              ),
-              SizedBox(
-                width: 374,
-                height: 63,
-                child: TextFormField(
-                  controller: _emailController,
-                  validator: (value) => value == null || value.isEmpty
-                      ? 'Please enter your name'
-                      : null,
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () => _emailController.clear(),
-                        icon: const Icon(
-                          Icons.clear,
-                        ),
-                      ),
-                      label: Row(children: const [
-                        Icon(Icons.mail_rounded),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Email address',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'PoppinsLight',
-                            color: Color(0xffa1a4b2),
-                            letterSpacing: 0.12,
-                          ),
-                        ),
-                      ]),
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 238, 239, 247)),
+                const SizedBox(
+                  height: 23,
                 ),
-              ),
-              const SizedBox(
-                height: 23,
-              ),
-              SizedBox(
-                width: 374,
-                height: 63,
-                child: TextFormField(
-                  controller: _passController,
-                  validator: (value) => value == null || value.isEmpty
-                      ? 'Please enter your password'
-                      : null,
-                  obscureText: _showORnot,
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () => setState(() {
-                          _showORnot = !_showORnot;
-                        }),
-                        icon: Icon(
-                          _showORnot ? Icons.visibility : Icons.visibility_off,
-                        ),
-                      ),
-                      label: Row(children: const [
-                        Icon(Icons.lock),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          'Password',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: 'PoppinsLight',
-                            color: Color(0xffa1a4b2),
-                            letterSpacing: 0.12,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 176,
-                        ),
-                      ]),
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 238, 239, 247)),
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  RawMaterialButton(
-                    onPressed: () => _formKey.currentState!.validate()
-                        ? Navigator.of(context).pushReplacementNamed('/home')
-                        : ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            duration: const Duration(seconds: 1),
-                            content: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    'Please fill all',
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      fontFamily: 'PoppinsBold',
-                                      letterSpacing: 1.5,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ]),
-                          )),
-                    elevation: 2.0,
-                    fillColor: const Color(0xff3eb489),
-                    child: const Text(
-                      'LOG IN   >',
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontFamily: 'RobotoBold',
-                        letterSpacing: 1.5,
-                        color: Colors.white,
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(15.0),
-                    constraints: const BoxConstraints(minWidth: 200),
-                    shape: const StadiumBorder(),
-                  ),
-                  const SizedBox(
-                    width: 13,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text(
-                  'Don\'t have any account?',
+                  'Welcome Back',
                   style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'RobotoBold',
-                    letterSpacing: 0.12,
-                    color: Colors.black,
+                    fontSize: 28,
+                    fontFamily: 'PoppinsBold',
+                    color: Color(0xff3f414e),
                   ),
                 ),
-                TextButton(
-                  onPressed: () =>
-                      Navigator.of(context).pushReplacementNamed('/register'),
-                  //elevation: 2.0,
-                  child: const Text(
-                    'Sign up',
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(children: const [
+                  SizedBox(width: 25),
+                  Text(
+                    'login to continue',
                     style: TextStyle(
                       fontSize: 24,
                       fontFamily: 'RobotoBold',
+                      color: Color(0xff030303),
                       letterSpacing: 0.12,
-                      color: Color(0xff3eb489),
                     ),
                   ),
-                  //shape: const StadiumBorder(),
+                ]),
+                const SizedBox(
+                  height: 52,
                 ),
-              ]),
-            ]),
+                SizedBox(
+                  width: 374,
+                  height: 63,
+                  child: TextFormField(
+                    controller: _emailController,
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Please enter your name'
+                        : null,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () => _emailController.clear(),
+                          icon: const Icon(
+                            Icons.clear,
+                          ),
+                        ),
+                        label: Row(children: const [
+                          Icon(Icons.mail_rounded),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            'Email address',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'PoppinsLight',
+                              color: Color(0xffa1a4b2),
+                              letterSpacing: 0.12,
+                            ),
+                          ),
+                        ]),
+                        border: const OutlineInputBorder(),
+                        filled: true,
+                        fillColor: const Color.fromARGB(255, 238, 239, 247)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 23,
+                ),
+                SizedBox(
+                  width: 374,
+                  height: 63,
+                  child: TextFormField(
+                    controller: _passController,
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Please enter your password'
+                        : null,
+                    obscureText: _showORnot,
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () => setState(() {
+                            _showORnot = !_showORnot;
+                          }),
+                          icon: Icon(
+                            _showORnot
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
+                        label: Row(children: const [
+                          Icon(Icons.lock),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            'Password',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'PoppinsLight',
+                              color: Color(0xffa1a4b2),
+                              letterSpacing: 0.12,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 176,
+                          ),
+                        ]),
+                        border: const OutlineInputBorder(),
+                        filled: true,
+                        fillColor: const Color.fromARGB(255, 238, 239, 247)),
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    commonUsedButton(
+                      function: () => _formKey.currentState!.validate()
+                          ? Navigator.of(context).pushReplacementNamed('/home')
+                          : ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(seconds: 1),
+                                content: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Text(
+                                      'Please fill all',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontFamily: 'PoppinsBold',
+                                        letterSpacing: 1.5,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                      elevation: 2.0,
+                      text: 'LOG IN   >',
+                      fontSize: 23,
+                      padding: const EdgeInsets.all(15.0),
+                      constraints: const BoxConstraints(minWidth: 200),
+                    ),
+                    const SizedBox(
+                      width: 13,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Don\'t have any account?',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'RobotoBold',
+                        letterSpacing: 0.12,
+                        color: Colors.black,
+                      ),
+                    ),
+                    commonTextButton(
+                      function: () => Navigator.of(context)
+                          .pushReplacementNamed('/register'),
+                      text: 'Sign up',
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

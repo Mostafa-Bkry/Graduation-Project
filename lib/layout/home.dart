@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project/shared/components/components.dart';
 //import 'package:path_provider/path_provider.dart';
 //import 'package:path/path.dart';
 
@@ -103,444 +104,42 @@ class _MyHomePageState extends State<MyHomePage> {
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 210, childAspectRatio: 1.0),
         children: [
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/potato.jpg'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Potato',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/tomato.jpeg'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Tomato',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/pepper.jpg'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Pepper',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/corn.jpeg'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Corn',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/apple.png'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Apple',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 20,
-            margin: const EdgeInsets.all(15.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/strawberry.jpg'),
-                    fit: BoxFit.cover),
-              ),
-              child: RawMaterialButton(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (_) => Dialog(
-                    elevation: 6.0,
-                    backgroundColor: const Color.fromARGB(200, 255, 255, 255),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(
-                          height: 22,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Choose How To Pick Your Image',
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.camera, context),
-                          icon: Image.asset('assets/images/camera.png'),
-                          iconSize: 65,
-                        ),
-                        IconButton(
-                          splashColor: Colors.black,
-                          onPressed: () =>
-                              picImage(ImageSource.gallery, context),
-                          icon: Image.asset('assets/images/gallery.png'),
-                          iconSize: 60,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Strawberry',
-                        style: TextStyle(
-                            letterSpacing: 2,
-                            shadows: [
-                              Shadow(color: Colors.white, blurRadius: 15),
-                            ],
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(225, 255, 253, 253)),
-                      ),
-                    ]),
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
+          plantCards(
+              context: context,
+              image: 'assets/images/potato.jpg',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Potato'),
+          plantCards(
+              context: context,
+              image: 'assets/images/tomato.jpeg',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Tomato'),
+          plantCards(
+              context: context,
+              image: 'assets/images/pepper.jpg',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Pepper'),
+          plantCards(
+              context: context,
+              image: 'assets/images/corn.jpeg',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Corn'),
+          plantCards(
+              context: context,
+              image: 'assets/images/apple.png',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Apple'),
+          plantCards(
+              context: context,
+              image: 'assets/images/strawberry.jpg',
+              pickByCamera: () => picImage(ImageSource.camera, context),
+              pickFromGallery: () => picImage(ImageSource.gallery, context),
+              childText: 'Strawberry'),
         ],
       ),
       bottomNavigationBar: BottomNavBar.convexBar(context),

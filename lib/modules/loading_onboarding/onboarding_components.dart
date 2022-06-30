@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project/modules/loading_onboarding/on_boarding.dart';
 
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
