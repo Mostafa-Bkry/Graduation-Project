@@ -1,5 +1,24 @@
 import 'package:flutter/material.dart';
 
+class MyClipper extends CustomClipper<Rect> {
+  final Rect rect;
+  bool reclip;
+  MyClipper({
+    required this.rect,
+    required this.reclip,
+  });
+
+  @override
+  getClip(Size size) {
+    return rect;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return reclip;
+  }
+}
+
 Widget commonUsedButton({
   required Function() function,
   double elevation = 5.0,
@@ -31,6 +50,8 @@ Widget commonUsedButton({
     shape: shape,
   );
 }
+
+
 
 
 
@@ -92,3 +113,43 @@ Widget commonUsedButton({
 //         constraints: const BoxConstraints(minWidth: 244),
 //         shape: const StadiumBorder(),
 //       ),
+
+
+
+// class MyClipperOne extends CustomClipper<Rect> {
+//   @override
+//   getClip(Size size) {
+//     return const Rect.fromLTRB(-50, 0, 500, 480);
+//   }
+
+//   @override
+//   bool shouldReclip(covariant CustomClipper oldClipper) {
+//     return true;
+//   }
+// }
+
+// //Second specifications for Clipper of the second onboarding
+// class MyClipperTwo extends CustomClipper<Rect> {
+//   @override
+//   getClip(Size size) {
+//     return const Rect.fromLTRB(0, 0, 600, 500);
+//   }
+
+//   @override
+//   bool shouldReclip(covariant CustomClipper oldClipper) {
+//     return true;
+//   }
+// }
+
+// //Third specifications for Clipper of the third onboarding
+// class MyClipperThree extends CustomClipper<Rect> {
+//   @override
+//   getClip(Size size) {
+//     return const Rect.fromLTRB(-30, -180, 490, 490);
+//   }
+
+//   @override
+//   bool shouldReclip(covariant CustomClipper oldClipper) {
+//     return true;
+//   }
+// }
