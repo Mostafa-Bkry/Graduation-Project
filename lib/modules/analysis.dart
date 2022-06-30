@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/nav_and_drawer/bottom_nav_bar.dart';
+import 'package:project/modules/nav_and_drawer/bottom_nav_bar.dart';
 
 class AnalysisResult extends StatefulWidget {
   const AnalysisResult({Key? key}) : super(key: key);
@@ -53,7 +53,10 @@ class _AnalysisResultState extends State<AnalysisResult> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavBar.convexBar(context),
+      bottomNavigationBar: BottomNavBar.convexBar(
+        context,
+        location: 1,
+      ),
     );
   }
 }

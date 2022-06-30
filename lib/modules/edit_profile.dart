@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/nav_and_drawer/bottom_nav_bar.dart';
+import 'package:project/modules/nav_and_drawer/bottom_nav_bar.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);

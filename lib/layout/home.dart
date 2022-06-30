@@ -6,8 +6,8 @@ import 'package:project/shared/components/components.dart';
 //import 'package:path_provider/path_provider.dart';
 //import 'package:path/path.dart';
 
-import '../nav_and_drawer/bottom_nav_bar.dart';
-import '../nav_and_drawer/my_drawer.dart';
+import '../modules/nav_and_drawer/bottom_nav_bar.dart';
+import '../modules/nav_and_drawer/my_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

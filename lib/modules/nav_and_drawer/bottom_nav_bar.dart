@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 class BottomNavBar {
   static int index = 0;
+  int? location;
 
-  static Widget convexBar(BuildContext context) {
+  static Widget convexBar(BuildContext context, {int? location}) {
     return ConvexAppBar(
-      initialActiveIndex: index,
+      initialActiveIndex: location ?? index,
       color: const Color(0xff3f414e),
       activeColor: Colors.green,
       backgroundColor: Colors.white,
