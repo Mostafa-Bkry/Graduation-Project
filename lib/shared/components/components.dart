@@ -149,6 +149,154 @@ Widget plantCards({
   );
 }
 
+Widget commonTextField({
+  required TextEditingController controller,
+  required String? Function(String? value)? validatorFunction,
+  required TextInputType inputType,
+  required String labelText,
+  TextStyle lableStyle = const TextStyle(fontSize: 18),
+  required Widget prefixIcon,
+  TextInputAction textInputAction = TextInputAction.next,
+  bool isFilled = false,
+  Color fillColor = const Color.fromARGB(255, 238, 239, 247),
+  bool isObsecured = false,
+  Widget? suffixIcon,
+}) =>
+    TextFormField(
+      controller: controller,
+      validator: validatorFunction,
+      keyboardType: inputType,
+      textInputAction: textInputAction,
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: lableStyle,
+        prefixIcon: prefixIcon,
+        border: const OutlineInputBorder(),
+        filled: isFilled,
+        fillColor: fillColor,
+        suffixIcon: suffixIcon,
+      ),
+      obscureText: isObsecured,
+    );
+
+
+// TextFormField(
+//                     controller: _controllerForUserName,
+//                     validator: (value) => value == null || value.isEmpty
+//                         ? 'Please enter your name'
+//                         : null,
+//                     keyboardType: TextInputType.text,
+//                     textInputAction: TextInputAction.next,
+//                     autocorrect: false,
+//                     decoration: InputDecoration(
+//                         suffixIcon: IconButton(
+//                           onPressed: () => _controllerForUserName.clear(),
+//                           icon: const Icon(
+//                             Icons.clear,
+//                           ),
+//                         ),
+//                         label: Row(children: const [
+//                           Icon(Icons.supervised_user_circle_rounded),
+//                           SizedBox(
+//                             width: 15,
+//                           ),
+//                           Text(
+//                             'User Name',
+//                             style: TextStyle(
+//                               fontSize: 18,
+//                               fontFamily: 'PoppinsLight',
+//                               color: Color(0xffa1a4b2),
+//                               letterSpacing: 0.12,
+//                             ),
+//                           ),
+//                         ]),
+//                         border: const OutlineInputBorder(),
+//                         filled: true,
+//                         fillColor: const Color.fromARGB(255, 238, 239, 247)),
+//                   ),
+
+// TextFormField(
+//                     controller: _emailController,
+//                     validator: (value) => value == null || value.isEmpty
+//                         ? 'Please enter your name'
+//                         : null,
+//                     keyboardType: TextInputType.emailAddress,
+//                     textInputAction: TextInputAction.next,
+//                     autocorrect: false,
+//                     decoration: InputDecoration(
+//                         suffixIcon: IconButton(
+//                           onPressed: () => _emailController.clear(),
+//                           icon: const Icon(
+//                             Icons.clear,
+//                           ),
+//                         ),
+//                         label: Row(children: const [
+//                           Icon(Icons.mail_rounded),
+//                           SizedBox(
+//                             width: 15,
+//                           ),
+//                           Text(
+//                             'Email address',
+//                             style: TextStyle(
+//                               fontSize: 18,
+//                               fontFamily: 'PoppinsLight',
+//                               color: Color(0xffa1a4b2),
+//                               letterSpacing: 0.12,
+//                             ),
+//                           ),
+//                         ]),
+//                         border: const OutlineInputBorder(),
+//                         filled: true,
+//                         fillColor: const Color.fromARGB(255, 238, 239, 247)),
+//                   ),
+
+
+
+
+// TextFormField(
+//                     controller: _passController,
+//                     validator: (value) => value == null || value.isEmpty
+//                         ? 'Please enter your password'
+//                         : null,
+//                     obscureText: _showORnot,
+//                     keyboardType: TextInputType.text,
+//                     textInputAction: TextInputAction.next,
+//                     autocorrect: false,
+//                     decoration: InputDecoration(
+//                         suffixIcon: IconButton(
+//                           onPressed: () => setState(() {
+//                             _showORnot = !_showORnot;
+//                           }),
+//                           icon: Icon(
+//                             _showORnot
+//                                 ? Icons.visibility
+//                                 : Icons.visibility_off,
+//                           ),
+//                         ),
+//                         label: Row(children: const [
+//                           Icon(Icons.lock),
+//                           SizedBox(
+//                             width: 15,
+//                           ),
+//                           Text(
+//                             'Password',
+//                             style: TextStyle(
+//                               fontSize: 18,
+//                               fontFamily: 'PoppinsLight',
+//                               color: Color(0xffa1a4b2),
+//                               letterSpacing: 0.12,
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             width: 176,
+//                           ),
+//                         ]),
+//                         border: const OutlineInputBorder(),
+//                         filled: true,
+//                         fillColor: const Color.fromARGB(255, 238, 239, 247)),
+//                   ),
+
+
 
 
 
