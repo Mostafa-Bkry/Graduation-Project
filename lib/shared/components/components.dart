@@ -250,9 +250,6 @@ Widget commonTextField({
 //                         fillColor: const Color.fromARGB(255, 238, 239, 247)),
 //                   ),
 
-
-
-
 // TextFormField(
 //                     controller: _passController,
 //                     validator: (value) => value == null || value.isEmpty

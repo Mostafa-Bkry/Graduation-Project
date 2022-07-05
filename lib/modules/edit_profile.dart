@@ -62,7 +62,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 55,
+                  height: 50,
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(

@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ]),
                   const SizedBox(
-                    height: 52,
+                    height: 60,
                   ),
                   commonTextField(
                     controller: _emailController,
